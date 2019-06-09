@@ -123,3 +123,26 @@ router.get('/getUser',passport.authenticate("jwt",{session:false}),(req,res)=>{
 passport.authenticate("jwt",{session:false}) //加上这条代码，就达到只有附带token才能请求的效果
 ~~~
 
+### 关于Vuecli3的axios请求本地json数据与v-bind绑定本地资源的一些问题
+
+访问静态资源只能在public文件夹下才可以，并且目前只能用get请求，post不会。
+
+用v:bing或axios请求的时候，除非跨域，都会直接指定到localhost:8080/public下，所以不用在请求里面重复加 /public/
+
+如果你请求本地数据通过其他路径，那么浏览器就会一直报404的错误，这就是我早上在做背景切换功能时卡住我的问题==
+
+同样v-bind也一样
+例如
+~~~
+<img :src="showImg" />
+
+简写一下
+export default({
+     data(){
+        return{
+            showImg:"static/bg/0.jpg"         
+        }
+     }
+})
+~~~
+如果是上述代码，在寻找showImg的地址就会自动区public文件下找static文件，如果有，则显示图片，没有则你会得不到图片
