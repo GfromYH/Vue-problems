@@ -146,3 +146,5 @@ export default({
 })
 ~~~
 如果是上述代码，在寻找showImg的地址就会自动区public文件下找static文件，如果有，则显示图片，没有则你会得不到图片
+### 关于express
+express框架中并没有解析post数据，所以你必须安装一个body-parser
