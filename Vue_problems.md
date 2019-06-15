@@ -148,3 +148,8 @@ export default({
 如果是上述代码，在寻找showImg的地址就会自动区public文件下找static文件，如果有，则显示图片，没有则你会得不到图片
 ### 关于express
 express框架中并没有解析post数据，所以你必须安装一个body-parser
+
+### 关于vue-router
+hash模式与history模式
+hash模式是完整的url一般最后会跟这个#
+history模式是将丑的url美化了，省略后面的# 但是如果没有配置404页面，或者是没跟后端交互，当用户搜索不存在的页面，就会返回404状态吗，这样交互就不太好
