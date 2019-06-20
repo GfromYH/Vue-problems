@@ -29,7 +29,7 @@
           }
 ```
 + 第二种
-加上native
+加上native 注意！！！如果用了封装组件的话，比如element，这个时候使用按键修饰符需要加上.native
 > ```javascript
 > <el-button  icon="el-icon-search" type="danger" style="width: 100%;text-align: center" @keyup.native.enter="search">搜索</el-button>
 > ```
