@@ -8,6 +8,7 @@
 > <el-button  icon="el-icon-search" type="danger" style="width: 100%;text-align: center" @keyup.enter="search" @click="search">搜索</el-button>
 > ```
 
++ 第一种
 发现只有在点击该按钮获取焦点之后才回车才能触发键盘回车事件然后网上咨询了一下，正确写法应该先把他绑定在document上，然后就好啦，下边是正确写法
 
 ```javascript
@@ -27,8 +28,11 @@
             },
           }
 ```
-
-
++ 第二种
+加上native
+> ```javascript
+> <el-button  icon="el-icon-search" type="danger" style="width: 100%;text-align: center" @keyup.native.enter="search">搜索</el-button>
+> ```
 
 ### 关于token
 
