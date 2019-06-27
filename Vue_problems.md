@@ -157,3 +157,30 @@ express框架中并没有解析post数据，所以你必须安装一个body-pars
 hash模式与history模式
 hash模式是完整的url一般最后会跟这个#
 history模式是将丑的url美化了，省略后面的# 但是如果没有配置404页面，或者是没跟后端交互，当用户搜索不存在的页面，就会返回404状态吗，这样交互就不太好
+
+
+
+### 关于Vue中的keep-alive
+
+往往在项目中，我们前往一个页面时，返回后仍希望之前页面数据还在
+
+这个是后我们就需要用到**keep-alive**
+
+> keep-alive属性
+>
+> include:字符串或正则表达式，只有名称匹配的组件会被缓存
+>
+> exclude字符串或正则表达式，任何名称匹配的组件都不会被缓存
+>
+> max:数字，最多可以缓存多少组件实例
+>
+> 以及新的2个生命周期的钩子函数
+>
+> actived:页面第一次进入的时候，钩子触发的顺序是created->mounted->activated
+>
+> deactived:页面退出的时候会触发deactivated，当再次前进或者后退的时候只触发activated
+
+使用vue2.0中的keep-alive来缓存页面，导致每次编辑页面保存后返回到list页的数据不会实时更新
+
+使用keep-alive后，**mounted生命周期函数不会每次都触发**，而vue新增了activated和deactivated函数，所以我们可以在activated函数里执行一次ajax请求，list页面就会实时更新了
+
