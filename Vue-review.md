@@ -57,6 +57,8 @@ export default axios;
 
 ### Vue 路由之间的传值
 
+$router为路由的实例对象，可以调用一些函数， $route为路由的信息对象
+
 + query传值
 
 ~~~javascript
